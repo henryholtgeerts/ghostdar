@@ -1,6 +1,6 @@
 <?php
 
-namespace Ghostdar\Chapters;
+namespace Ghostdar\Sightings;
 
 use Ghostdar\Framework\Abstracts\PostType as PostTypeAbstract;
 
@@ -8,30 +8,30 @@ class PostType extends PostTypeAbstract
 {
     public function getSlug ()
     {
-        return 'chapter';
+        return 'sighting';
     }
 
     public function getSingularName ()
     {
-        return 'Chapter';
+        return 'Sighting';
     }
 
     public function getPluralName ()
     {
-        return 'Chapters';
+        return 'Sightings';
     }
 
     public function registerMeta ()
     {
         $metaKeys = [
             'id',
-            'longitude',
+            'ghost_id',
             'latitude',
-            'radius',
+            'longitude',
         ];
 
         foreach ($metaKeys as $key) {
-            register_post_meta( 'ghostdar-chapter', "ghostdar_chapter_{$key}", [
+            register_post_meta( 'ghostdar-chapter', "ghostdar_ghost_{$key}", [
                 'single' => true,
                 'show_in_rest' => true,
                 'type' => 'string',

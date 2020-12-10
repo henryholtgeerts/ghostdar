@@ -13,7 +13,7 @@ class Model extends ActiveRecord
         'name' => 'string',
         'description' => 'string',
         'avatar_url' => 'string',
-        'first_seen' => 'datetime',
+        'first_seen' => 'string',
         'is_public' => 'boolean',
     ];
 }

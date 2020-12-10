@@ -1,18 +1,18 @@
 <?php
 
-namespace Ghostdar\Chapters\Migrations;
+namespace Ghostdar\Sightings\Migrations;
 
 use Ghostdar\Framework\Abstracts\Migration;
 use Ghostdar\Framework\Helpers\Table;
 
-class CreateChaptersTable extends Migration {
+class CreateSightingsTable extends Migration {
 	/**
 	 * @inheritDoc
 	 *
 	 * @since 2.9.0
 	 */
 	public static function id() {
-		return 'create_chapters_table';
+		return 'create_sightings_table';
 	}
 
 	/**
@@ -21,7 +21,7 @@ class CreateChaptersTable extends Migration {
 	 * @since 2.9.0
 	 */
 	public static function timestamp() {
-		return strtotime( '2020-12-1' );
+		return strtotime( '2020-12-10' );
 	}
 
 	/**
@@ -33,18 +33,20 @@ class CreateChaptersTable extends Migration {
 		global $wpdb;
 
 		$charset_collate     = $wpdb->get_charset_collate();
-		$tableName           = "{$wpdb->prefix}ghostdar_chapters";
+		$tableName           = "{$wpdb->prefix}ghostdar_sightings";
 		$referencedTableName = "{$wpdb->prefix}posts";
 
 		$sql = "CREATE TABLE {$tableName} (
   			id bigint UNSIGNED NOT NULL AUTO_INCREMENT,
 			post_id bigint UNSIGNED NOT NULL,
-  			latitude float NOT NULL,
-			longitude float NOT NULL,
-			radius float NOT NULL,
-			is_public boolean NOT NULL,
 			name varchar(55) NOT NULL,
 			description varchar(55) NOT NULL,
+			evidence_url varchar(255) NOT NULL,
+			seen datetime NOT NULL,
+			ghost_id bigint UNSIGNED NOT NULL,
+			latitude float NOT NULL,
+			longitude float NOT NULL,
+			is_public boolean NOT NULL,
   			PRIMARY KEY (id)
 		) {$charset_collate};";
 

@@ -1,21 +1,22 @@
 <?php
 
-namespace Ghostdar\Chapters;
+namespace Ghostdar\Sightings;
 
 use Ghostdar\Framework\Abstracts\ActiveRecord;
 
 class Model extends ActiveRecord
 {
-    protected static $tableName = 'ghostdar_chapters';
+    protected static $tableName = 'ghostdar_ghosts';
 
     protected static $casts = [
         'post_id' => 'int',
-        'latitude' => 'float',
-        'longitude' => 'float',
-        'radius' => 'float',
         'name' => 'string',
         'description' => 'string',
-        'created_at' => 'datetime',
+        'evidence_url' => 'string',
+        'seen' => 'string',
+        'ghost_id' => 'int',
+        'latitude' => 'float',
+        'longitude' => 'float',
         'is_public' => 'boolean',
     ];
 }

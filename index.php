@@ -25,6 +25,7 @@ final class Ghostdar {
 	private $serviceProviders = [
 		Ghostdar\Assets\ServiceProvider::class,
 		Ghostdar\Ghosts\ServiceProvider::class,
+		Ghostdar\Sightings\ServiceProvider::class,
 		Ghostdar\Framework\Migrations\ServiceProvider::class,
 	];
 

@@ -56,7 +56,7 @@ abstract class ActiveRecord {
      * @return \wp_activerecord\Model The model object
      */
     public function save() {
-        $isNew = !array_key_exists('id', $this->attributes);
+        $isNew = !array_key_exists('id', $this->attributes) || empty($this->attributes['id']);
         $this->save_pre($isNew);
         if($isNew) {
             $this->attributes['id'] = static::insert($this->attributes);
@@ -168,6 +168,7 @@ abstract class ActiveRecord {
      * @return \wp_activerecord\Model An model instance
      */
     public static function create($attributes) {
+        error_log('attributes' . serialize($attributes));
         $instance = new static($attributes);
         return $instance->save();
     }

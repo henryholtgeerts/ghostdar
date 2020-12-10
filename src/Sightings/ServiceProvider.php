@@ -1,12 +1,12 @@
 <?php
 
-namespace Ghostdar\Chapters;
+namespace Ghostdar\Sightings;
 
 use Ghostdar\Framework\Helpers\Hooks;
 use Ghostdar\Framework\Abstracts\ServiceProvider as ServiceProviderInterface;
-use Ghostdar\Chapters\PostType as ChapterPostType;
-use Ghostdar\Chapters\Controller as ChapterController;
-use Ghostdar\Chapters\Migrations\CreateChaptersTable;
+use Ghostdar\Sightings\PostType as SightingPostType;
+use Ghostdar\Sightings\Controller as SightingController;
+use Ghostdar\Sightings\Migrations\CreateSightingsTable;
 
 use Ghostdar\Framework\Migrations\Register as MigrationsRegister;
 
@@ -16,8 +16,8 @@ class ServiceProvider implements ServiceProviderInterface {
 	 * @inheritDoc
 	 */
 	public function register() {
-		ghostdar()->singleton( ChapterPostType::class );
-		ghostdar()->singleton( ChapterController::class );
+		ghostdar()->singleton( SightingPostType::class );
+		ghostdar()->singleton( SightingController::class );
 	}
 
 	/**
@@ -26,12 +26,12 @@ class ServiceProvider implements ServiceProviderInterface {
 	public function boot() {
 		$this->registerMigrations();
 
-		Hooks::addAction( 'init', ChapterPostType::class, 'registerPostType' );
-		Hooks::addAction( 'init', ChapterPostType::class, 'registerMeta' );
-		Hooks::addAction( 'rest_after_insert_ghostdar-chapter', ChapterController::class, 'handleInsert', 10, 3 );
-		Hooks::addAction( 'delete_post', ChapterController::class, 'handleDelete', 10, 2 );
-		Hooks::addAction( 'wp_trash_post', ChapterController::class, 'handleTrash', 10, 1 );
-		Hooks::addAction( 'untrash_post', ChapterController::class, 'handleUntrash', 10, 1 );
+		Hooks::addAction( 'init', SightingPostType::class, 'registerPostType' );
+		Hooks::addAction( 'init', SightingPostType::class, 'registerMeta' );
+		Hooks::addAction( 'rest_after_insert_ghostdar-sighting', SightingController::class, 'handleInsert', 10, 3 );
+		Hooks::addAction( 'delete_post', SightingController::class, 'handleDelete', 10, 2 );
+		Hooks::addAction( 'wp_trash_post', SightingController::class, 'handleTrash', 10, 1 );
+		Hooks::addAction( 'untrash_post', SightingController::class, 'handleUntrash', 10, 1 );
 	}
 
 	/**
@@ -39,6 +39,6 @@ class ServiceProvider implements ServiceProviderInterface {
 	 */
 	private function registerMigrations() {
 		$register = ghostdar( MigrationsRegister::class );
-		$register->addMigration( CreateChaptersTable::class );
+		$register->addMigration( CreateSightingsTable::class );
 	}
 }

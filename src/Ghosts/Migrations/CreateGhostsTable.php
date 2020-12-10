@@ -42,7 +42,7 @@ class CreateGhostsTable extends Migration {
 			name varchar(55) NOT NULL,
 			description varchar(55) NOT NULL,
 			avatar_url varchar(255) NOT NULL,
-			first_seen bigint UNSIGNED NOT NULL,
+			first_seen datetime NOT NULL,
 			is_public boolean NOT NULL,
   			PRIMARY KEY (id)
 		) {$charset_collate};";

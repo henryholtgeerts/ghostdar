@@ -11,6 +11,7 @@ class Controller
         $attrs = $this->getGhostAttributesFromPost($post);
         if ( empty($attrs['id']) ) {
             $ghost = Ghost::create($attrs);
+            error_log('created ghost! ' . $ghost->id);
             update_post_meta($post->ID, 'ghostdar_ghost_id', $ghost->id);
         } else {
             $ghost = Ghost::get($attrs['id']);
@@ -59,7 +60,7 @@ class Controller
             'name' => $post->post_title,
             'description' => $post->post_excerpt,
             'avatar_url' => get_the_post_thumbnail_url($post, [120, 120]),
-            'first_seen' => $post->_wp_old_date,
+            'first_seen' => $post->post_date_gmt,
             'id' => $post->ghostdar_ghost_id,
             'is_public' => $post->post_status === 'publish' ? true : false,
         ];
