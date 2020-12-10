@@ -21,6 +21,19 @@ class PostType extends PostTypeAbstract
         return 'Sightings';
     }
 
+    protected function getArgs ()
+    {
+        $args = [
+            'template' => [
+                [
+                    'ghostdar/sighting'
+                ]
+            ],
+            'template_lock' => 'all'
+        ];
+        return array_merge($this->getDefaultArgs(), $args);
+    }
+
     public function registerMeta ()
     {
         $metaKeys = [
@@ -31,7 +44,7 @@ class PostType extends PostTypeAbstract
         ];
 
         foreach ($metaKeys as $key) {
-            register_post_meta( 'ghostdar-chapter', "ghostdar_ghost_{$key}", [
+            register_post_meta( 'ghostdar-sighting', "ghostdar_sighting_{$key}", [
                 'single' => true,
                 'show_in_rest' => true,
                 'type' => 'string',

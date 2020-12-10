@@ -1,7 +1,4 @@
-{    
-    "require": {
-        "twilio/sdk": "5.7.3"
-    },
+{
     "autoload": {
         "psr-4": {"Ghostdar\\": "src/"}
     }

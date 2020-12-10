@@ -25,6 +25,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "@react-google-maps/api": "^1.13.0",
     "@wordpress/edit-post": "^3.25.5",
     "@wordpress/interface": "^0.10.5",
     "axios": "^0.21.0",
