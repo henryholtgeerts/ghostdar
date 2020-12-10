@@ -1,0 +1,1 @@
+console.log('frontend assets loaded!');
