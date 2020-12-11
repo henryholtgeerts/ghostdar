@@ -4,11 +4,11 @@ namespace Ghostdar\Sightings\Blocks;
 
 use Ghostdar\Framework\Abstracts\Block as BlockAbstract;
 
-class SightingBlock extends BlockAbstract {
+class SightingsMapBlock extends BlockAbstract {
 
     public function getSlug ()
     {
-        return 'sighting';
+        return 'sightings-map';
     }
 
     public function renderCallback ( $attributes, $content )
@@ -41,7 +41,7 @@ class SightingBlock extends BlockAbstract {
 	 * @since 2.9.0
 	 **/
 	public function getTemplatePath() {
-		return GHOSTDAR_PLUGIN_DIR . '/src/Sightings/resources/views/sighting.php';
+		return GHOSTDAR_PLUGIN_DIR . '/src/Sightings/resources/views/sightings-map.php';
 	}
 
 }

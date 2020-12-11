@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_Sightings_resources_blocks_sighting__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../src/Sightings/resources/blocks/sighting */ \"./src/Sightings/resources/blocks/sighting/index.js\");\n// Import Sighting block\n\nconsole.log('editor assets loaded!');\n\n//# sourceURL=webpack:///./assets/src/editor/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_Sightings_resources_blocks_sightings_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../src/Sightings/resources/blocks/sightings-map */ \"./src/Sightings/resources/blocks/sightings-map/index.js\");\n/* harmony import */ var _src_Sightings_resources_blocks_submission_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../src/Sightings/resources/blocks/submission-form */ \"./src/Sightings/resources/blocks/submission-form/index.js\");\n// Import Sighting block\n//import '../../../src/Sightings/resources/blocks/sighting';\n// Import Sightings Map block\n // Import Submission Form block\n\n\nconsole.log('editor assets loaded!');\n\n//# sourceURL=webpack:///./assets/src/editor/index.js?");
 
 /***/ }),
 
@@ -290,63 +290,135 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 /***/ }),
 
-/***/ "./src/Sightings/resources/blocks/sighting/components/map-control/index.js":
-/*!*********************************************************************************!*\
-  !*** ./src/Sightings/resources/blocks/sighting/components/map-control/index.js ***!
-  \*********************************************************************************/
+/***/ "./src/Sightings/resources/blocks/sightings-map/edit/index.js":
+/*!********************************************************************!*\
+  !*** ./src/Sightings/resources/blocks/sightings-map/edit/index.js ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _react_google_maps_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @react-google-maps/api */ \"./node_modules/@react-google-maps/api/dist/reactgooglemapsapi.esm.js\");\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction _iterableToArrayLimit(arr, i) { if (typeof Symbol === \"undefined\" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\nvar _wp$element = wp.element,\n    memo = _wp$element.memo,\n    useState = _wp$element.useState,\n    useEffect = _wp$element.useEffect;\n\nvar MapControl = function MapControl(_ref) {\n  var value = _ref.value,\n      onChange = _ref.onChange;\n  var containerStyle = {\n    width: '400px',\n    height: '400px'\n  };\n  var initialCenter = value ? value : {\n    lat: -3.745,\n    lng: -38.523\n  };\n\n  var _useState = useState(initialCenter),\n      _useState2 = _slicedToArray(_useState, 2),\n      center = _useState2[0],\n      setCenter = _useState2[1];\n\n  var _useState3 = useState(value ? value : null),\n      _useState4 = _slicedToArray(_useState3, 2),\n      location = _useState4[0],\n      setLocation = _useState4[1];\n\n  useEffect(function () {\n    onChange(location);\n  }, [location]);\n  return /*#__PURE__*/React.createElement(_react_google_maps_api__WEBPACK_IMPORTED_MODULE_0__[\"LoadScript\"], {\n    googleMapsApiKey: \"AIzaSyB6iyv7fOYWfGy7l6VszXXbNUy1y8pgXqE\"\n  }, /*#__PURE__*/React.createElement(_react_google_maps_api__WEBPACK_IMPORTED_MODULE_0__[\"GoogleMap\"], {\n    mapContainerStyle: containerStyle,\n    center: center,\n    onClick: function onClick(e) {\n      return setLocation(e.latLng.toJSON());\n    },\n    zoom: 10\n  }, location && /*#__PURE__*/React.createElement(_react_google_maps_api__WEBPACK_IMPORTED_MODULE_0__[\"Marker\"], {\n    position: location\n  })));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (memo(MapControl));\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/sighting/components/map-control/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_sightings_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/sightings-map */ \"./src/Sightings/resources/components/sightings-map/index.js\");\n/**\n * WordPress dependencies\n */\nvar __ = wp.i18n.__;\nvar _wp$element = wp.element,\n    Fragment = _wp$element.Fragment,\n    useEffect = _wp$element.useEffect;\n/**\n * Internal dependencies\n */\n\n\n\nvar edit = function edit(_ref) {\n  var attributes = _ref.attributes,\n      setAttributes = _ref.setAttributes,\n      isSelected = _ref.isSelected,\n      clientId = _ref.clientId;\n  return /*#__PURE__*/React.createElement(_components_sightings_map__WEBPACK_IMPORTED_MODULE_0__[\"default\"], null);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (edit);\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/sightings-map/edit/index.js?");
 
 /***/ }),
 
-/***/ "./src/Sightings/resources/blocks/sighting/edit/index.js":
+/***/ "./src/Sightings/resources/blocks/sightings-map/index.js":
 /*!***************************************************************!*\
-  !*** ./src/Sightings/resources/blocks/sighting/edit/index.js ***!
+  !*** ./src/Sightings/resources/blocks/sightings-map/index.js ***!
   \***************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_map_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/map-control */ \"./src/Sightings/resources/blocks/sighting/components/map-control/index.js\");\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n/**\n * WordPress dependencies\n */\nvar __ = wp.i18n.__;\nvar _wp$element = wp.element,\n    Fragment = _wp$element.Fragment,\n    useEffect = _wp$element.useEffect;\n/**\n * Internal dependencies\n */\n\n\n/**\n * Vendor dependencies\n */\n\nvar edit = function edit(_ref) {\n  var attributes = _ref.attributes,\n      setAttributes = _ref.setAttributes,\n      isSelected = _ref.isSelected,\n      clientId = _ref.clientId;\n  var latitude = attributes.latitude,\n      longitude = attributes.longitude;\n\n  var saveSetting = function saveSetting(name, value) {\n    setAttributes(_defineProperty({}, name, JSON.stringify(value)));\n  };\n\n  return /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement(\"div\", {\n    className: \"ghostdar-sighting-editor\"\n  }, /*#__PURE__*/React.createElement(\"h2\", null, \"Sighting Editor!\")), /*#__PURE__*/React.createElement(_components_map_control__WEBPACK_IMPORTED_MODULE_0__[\"default\"], {\n    value: {\n      lat: Number(latitude),\n      lng: Number(longitude)\n    },\n    onChange: function onChange(value) {\n      saveSetting('latitude', value.lat);\n      saveSetting('longitude', value.lng);\n    }\n  }));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (edit);\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/sighting/edit/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit */ \"./src/Sightings/resources/blocks/sightings-map/edit/index.js\");\n/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./save */ \"./src/Sightings/resources/blocks/sightings-map/save/index.js\");\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils */ \"./src/Sightings/resources/blocks/sightings-map/utils/index.js\");\n/**\n * WordPress dependencies\n */\nvar __ = wp.i18n.__;\nvar registerBlockType = wp.blocks.registerBlockType;\n/**\n * Internal dependencies\n */\n\n\n\n\n/**\n * Register Block\n */\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (registerBlockType('ghostdar/sightings-map', {\n  title: __('Sightings Map', 'Ghostdar'),\n  description: __('Used to control and display Sightings.', 'ghostdar'),\n  category: 'layout',\n  icon: 'book-alt',\n  keywords: [__('sighting', 'ghostdar')],\n  supports: {\n    align: ['wide']\n  },\n  attributes: _utils__WEBPACK_IMPORTED_MODULE_2__[\"blockAttributes\"],\n  edit: _edit__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n  save: _save__WEBPACK_IMPORTED_MODULE_1__[\"default\"]\n}));\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/sightings-map/index.js?");
 
 /***/ }),
 
-/***/ "./src/Sightings/resources/blocks/sighting/index.js":
-/*!**********************************************************!*\
-  !*** ./src/Sightings/resources/blocks/sighting/index.js ***!
-  \**********************************************************/
+/***/ "./src/Sightings/resources/blocks/sightings-map/save/index.js":
+/*!********************************************************************!*\
+  !*** ./src/Sightings/resources/blocks/sightings-map/save/index.js ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit */ \"./src/Sightings/resources/blocks/sighting/edit/index.js\");\n/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./save */ \"./src/Sightings/resources/blocks/sighting/save/index.js\");\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils */ \"./src/Sightings/resources/blocks/sighting/utils/index.js\");\n/**\n * WordPress dependencies\n */\nvar __ = wp.i18n.__;\nvar registerBlockType = wp.blocks.registerBlockType;\n/**\n * Internal dependencies\n */\n\n\n\n\n/**\n * Register Block\n */\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (registerBlockType('ghostdar/sighting', {\n  title: __('Sighting', 'Ghostdar'),\n  description: __('Used to control and display Sightings.', 'ghostdar'),\n  category: 'layout',\n  icon: 'book-alt',\n  keywords: [__('sighting', 'ghostdar')],\n  attributes: _utils__WEBPACK_IMPORTED_MODULE_2__[\"blockAttributes\"],\n  edit: _edit__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n  save: _save__WEBPACK_IMPORTED_MODULE_1__[\"default\"]\n}));\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/sighting/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nvar InnerBlocks = wp.blockEditor.InnerBlocks;\n\nvar save = function save() {\n  return null;\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (save);\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/sightings-map/save/index.js?");
 
 /***/ }),
 
-/***/ "./src/Sightings/resources/blocks/sighting/save/index.js":
-/*!***************************************************************!*\
-  !*** ./src/Sightings/resources/blocks/sighting/save/index.js ***!
-  \***************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar InnerBlocks = wp.blockEditor.InnerBlocks;\n\nvar save = function save() {\n  return null;\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (save);\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/sighting/save/index.js?");
-
-/***/ }),
-
-/***/ "./src/Sightings/resources/blocks/sighting/utils/index.js":
-/*!****************************************************************!*\
-  !*** ./src/Sightings/resources/blocks/sighting/utils/index.js ***!
-  \****************************************************************/
+/***/ "./src/Sightings/resources/blocks/sightings-map/utils/index.js":
+/*!*********************************************************************!*\
+  !*** ./src/Sightings/resources/blocks/sightings-map/utils/index.js ***!
+  \*********************************************************************/
 /*! exports provided: blockAttributes */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"blockAttributes\", function() { return blockAttributes; });\n/**\n * Block Attributes\n*/\nvar blockAttributes = {\n  latitude: {\n    type: 'string',\n    \"default\": null,\n    source: 'meta',\n    meta: 'ghostdar_sighting_latitude'\n  },\n  longitude: {\n    type: 'string',\n    \"default\": null,\n    source: 'meta',\n    meta: 'ghostdar_sighting_longitude'\n  },\n  ghostId: {\n    type: 'string',\n    \"default\": null,\n    source: 'meta',\n    meta: 'ghostdar_sighting_ghost_id'\n  }\n};\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/sighting/utils/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"blockAttributes\", function() { return blockAttributes; });\n/**\n * Block Attributes\n*/\nvar blockAttributes = {\n  latitude: {\n    type: 'string',\n    \"default\": null,\n    source: 'meta',\n    meta: 'ghostdar_sighting_latitude'\n  },\n  longitude: {\n    type: 'string',\n    \"default\": null,\n    source: 'meta',\n    meta: 'ghostdar_sighting_longitude'\n  },\n  ghostId: {\n    type: 'string',\n    \"default\": null,\n    source: 'meta',\n    meta: 'ghostdar_sighting_ghost_id'\n  }\n};\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/sightings-map/utils/index.js?");
+
+/***/ }),
+
+/***/ "./src/Sightings/resources/blocks/submission-form/edit/index.js":
+/*!**********************************************************************!*\
+  !*** ./src/Sightings/resources/blocks/submission-form/edit/index.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_submission_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/submission-form */ \"./src/Sightings/resources/components/submission-form/index.js\");\n/**\n * WordPress dependencies\n */\nvar __ = wp.i18n.__;\nvar _wp$element = wp.element,\n    Fragment = _wp$element.Fragment,\n    useEffect = _wp$element.useEffect;\n/**\n * Internal dependencies\n */\n\n\n\nvar edit = function edit(_ref) {\n  var attributes = _ref.attributes,\n      setAttributes = _ref.setAttributes,\n      isSelected = _ref.isSelected,\n      clientId = _ref.clientId;\n  return /*#__PURE__*/React.createElement(_components_submission_form__WEBPACK_IMPORTED_MODULE_0__[\"default\"], null);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (edit);\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/submission-form/edit/index.js?");
+
+/***/ }),
+
+/***/ "./src/Sightings/resources/blocks/submission-form/index.js":
+/*!*****************************************************************!*\
+  !*** ./src/Sightings/resources/blocks/submission-form/index.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit */ \"./src/Sightings/resources/blocks/submission-form/edit/index.js\");\n/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./save */ \"./src/Sightings/resources/blocks/submission-form/save/index.js\");\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils */ \"./src/Sightings/resources/blocks/submission-form/utils/index.js\");\n/**\n * WordPress dependencies\n */\nvar __ = wp.i18n.__;\nvar registerBlockType = wp.blocks.registerBlockType;\n/**\n * Internal dependencies\n */\n\n\n\n\n/**\n * Register Block\n */\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (registerBlockType('ghostdar/submission-form', {\n  title: __('Submission Form', 'Ghostdar'),\n  description: __('Used to submit Sightings.', 'ghostdar'),\n  category: 'layout',\n  icon: 'book-alt',\n  keywords: [__('submission', 'ghostdar')],\n  attributes: _utils__WEBPACK_IMPORTED_MODULE_2__[\"blockAttributes\"],\n  edit: _edit__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n  save: _save__WEBPACK_IMPORTED_MODULE_1__[\"default\"]\n}));\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/submission-form/index.js?");
+
+/***/ }),
+
+/***/ "./src/Sightings/resources/blocks/submission-form/save/index.js":
+/*!**********************************************************************!*\
+  !*** ./src/Sightings/resources/blocks/submission-form/save/index.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar InnerBlocks = wp.blockEditor.InnerBlocks;\n\nvar save = function save() {\n  return null;\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (save);\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/submission-form/save/index.js?");
+
+/***/ }),
+
+/***/ "./src/Sightings/resources/blocks/submission-form/utils/index.js":
+/*!***********************************************************************!*\
+  !*** ./src/Sightings/resources/blocks/submission-form/utils/index.js ***!
+  \***********************************************************************/
+/*! exports provided: blockAttributes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"blockAttributes\", function() { return blockAttributes; });\n/**\n * Block Attributes\n*/\nvar blockAttributes = {\n  latitude: {\n    type: 'string',\n    \"default\": null,\n    source: 'meta',\n    meta: 'ghostdar_sighting_latitude'\n  },\n  longitude: {\n    type: 'string',\n    \"default\": null,\n    source: 'meta',\n    meta: 'ghostdar_sighting_longitude'\n  },\n  ghostId: {\n    type: 'string',\n    \"default\": null,\n    source: 'meta',\n    meta: 'ghostdar_sighting_ghost_id'\n  }\n};\n\n//# sourceURL=webpack:///./src/Sightings/resources/blocks/submission-form/utils/index.js?");
+
+/***/ }),
+
+/***/ "./src/Sightings/resources/components/map-control/index.js":
+/*!*****************************************************************!*\
+  !*** ./src/Sightings/resources/components/map-control/index.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _react_google_maps_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @react-google-maps/api */ \"./node_modules/@react-google-maps/api/dist/reactgooglemapsapi.esm.js\");\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction _iterableToArrayLimit(arr, i) { if (typeof Symbol === \"undefined\" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\nvar _wp$element = wp.element,\n    memo = _wp$element.memo,\n    useState = _wp$element.useState,\n    useEffect = _wp$element.useEffect;\n\nvar MapControl = function MapControl(_ref) {\n  var value = _ref.value,\n      onChange = _ref.onChange;\n  var containerStyle = {\n    width: '400px',\n    height: '400px'\n  };\n  var initialCenter = value ? value : {\n    lat: -3.745,\n    lng: -38.523\n  };\n\n  var _useState = useState(initialCenter),\n      _useState2 = _slicedToArray(_useState, 2),\n      center = _useState2[0],\n      setCenter = _useState2[1];\n\n  var _useState3 = useState(value ? value : null),\n      _useState4 = _slicedToArray(_useState3, 2),\n      location = _useState4[0],\n      setLocation = _useState4[1];\n\n  useEffect(function () {\n    onChange && onChange(location);\n  }, [location]);\n  return /*#__PURE__*/React.createElement(_react_google_maps_api__WEBPACK_IMPORTED_MODULE_0__[\"LoadScript\"], {\n    googleMapsApiKey: \"AIzaSyB6iyv7fOYWfGy7l6VszXXbNUy1y8pgXqE\"\n  }, /*#__PURE__*/React.createElement(_react_google_maps_api__WEBPACK_IMPORTED_MODULE_0__[\"GoogleMap\"], {\n    mapContainerStyle: containerStyle,\n    center: center,\n    onClick: function onClick(e) {\n      return setLocation(e.latLng.toJSON());\n    },\n    zoom: 10\n  }, location && /*#__PURE__*/React.createElement(_react_google_maps_api__WEBPACK_IMPORTED_MODULE_0__[\"Marker\"], {\n    position: location\n  })));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (memo(MapControl));\n\n//# sourceURL=webpack:///./src/Sightings/resources/components/map-control/index.js?");
+
+/***/ }),
+
+/***/ "./src/Sightings/resources/components/sightings-map/index.js":
+/*!*******************************************************************!*\
+  !*** ./src/Sightings/resources/components/sightings-map/index.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _map_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../map-control */ \"./src/Sightings/resources/components/map-control/index.js\");\n/**\n * WordPress dependencies\n */\nvar __ = wp.i18n.__;\nvar _wp$element = wp.element,\n    Fragment = _wp$element.Fragment,\n    useEffect = _wp$element.useEffect;\n/**\n * Internal dependencies\n */\n\n\n\nvar SubmissionForm = function SubmissionForm() {\n  return /*#__PURE__*/React.createElement(\"div\", null, /*#__PURE__*/React.createElement(\"h2\", null, \"Sightings Map!\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (SubmissionForm);\n\n//# sourceURL=webpack:///./src/Sightings/resources/components/sightings-map/index.js?");
+
+/***/ }),
+
+/***/ "./src/Sightings/resources/components/submission-form/index.js":
+/*!*********************************************************************!*\
+  !*** ./src/Sightings/resources/components/submission-form/index.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _map_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../map-control */ \"./src/Sightings/resources/components/map-control/index.js\");\n/**\n * WordPress dependencies\n */\nvar __ = wp.i18n.__;\nvar _wp$element = wp.element,\n    Fragment = _wp$element.Fragment,\n    useEffect = _wp$element.useEffect;\n/**\n * Internal dependencies\n */\n\n\n\nvar SubmissionForm = function SubmissionForm() {\n  return /*#__PURE__*/React.createElement(\"div\", null, /*#__PURE__*/React.createElement(\"h2\", null, \"Submission Form!\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (SubmissionForm);\n\n//# sourceURL=webpack:///./src/Sightings/resources/components/submission-form/index.js?");
 
 /***/ })
 

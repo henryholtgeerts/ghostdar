@@ -4,7 +4,7 @@ namespace Ghostdar\Sightings\Blocks;
 
 use Ghostdar\Framework\Abstracts\Block as BlockAbstract;
 
-class Block extends BlockAbstract {
+class SubmissionFormBlock extends BlockAbstract {
 
     public function getSlug ()
     {
@@ -28,7 +28,6 @@ class Block extends BlockAbstract {
 	 * @since 2.9.0
 	 **/
 	public function getOutput() {
-        error_log('get output called!!');
 		ob_start();
 		$output = '';
 		require $this->getTemplatePath();

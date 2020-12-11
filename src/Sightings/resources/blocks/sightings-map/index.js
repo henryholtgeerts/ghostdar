@@ -15,8 +15,8 @@ import { blockAttributes } from './utils';
  * Register Block
  */
 
-export default registerBlockType( 'ghostdar/sighting', {
-	title: __( 'Sighting', 'Ghostdar' ),
+export default registerBlockType( 'ghostdar/sightings-map', {
+	title: __( 'Sightings Map', 'Ghostdar' ),
 	description: __( 'Used to control and display Sightings.', 'ghostdar' ),
 	category: 'layout',
 	icon: 'book-alt',

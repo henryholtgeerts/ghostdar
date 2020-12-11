@@ -7,7 +7,7 @@ const { Fragment, useEffect } = wp.element;
 /**
  * Internal dependencies
  */
-import MapControl from '../components/map-control'
+import MapControl from '../../../components/map-control'
 
 /**
  * Vendor dependencies

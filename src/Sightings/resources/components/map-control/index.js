@@ -17,7 +17,7 @@ const MapControl = ({value, onChange}) => {
   const [ location, setLocation ] = useState(value ? value : null)
 
   useEffect(() => {
-    onChange(location)
+    onChange && onChange(location)
   }, [location])
 
   return (

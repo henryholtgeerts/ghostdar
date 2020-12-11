@@ -6,9 +6,15 @@ use Ghostdar\Sightings\Model as Sighting;
 
 class Controller
 {
-    public function handleInsert (\WP_Post $post, \WP_REST_Request $request, bool $update)
+
+    public function handleInsert (int $postId, \WP_Post $post, bool $update)
     {
+        if ( get_post_type( $postId ) !== 'ghostdar-sighting' ) {
+            return;
+        }
+        
         $attrs = $this->getSightingAttributesFromPost($post);
+
         if ( empty($attrs['id']) ) {
             $sighting = Sighting::create($attrs);
             update_post_meta($post->ID, 'ghostdar_sighting_id', $sighting->id);
@@ -25,6 +31,9 @@ class Controller
 
     public function handleTrash ( int $postId )
     {
+        if ( get_post_type( $postId ) !== 'ghostdar-sighting' ) {
+            return;
+        }
         $sighting = Sighting::get_one_by_post_id($postId);
         if ($sighting) {
             $sighting->is_public = false;
@@ -34,6 +43,9 @@ class Controller
 
     public function handleUntrash ( int $postId )
     {
+        if ( get_post_type( $postId ) !== 'ghostdar-sighting' ) {
+            return;
+        }
         $sighting = Sighting::get_one_by_post_id($postId);
         if ($sighting) {
             $sighting->is_public = true;
@@ -43,7 +55,7 @@ class Controller
 
     public function handleDelete ( int $postId, \WP_Post $post )
     {
-        if ( $post->post_type !== 'ghostdar-sighting' ) {
+        if ( get_post_type( $postId ) !== 'ghostdar-sighting' ) {
             return;
         }
         $sighting = Sighting::get_one_by_post_id($postId);

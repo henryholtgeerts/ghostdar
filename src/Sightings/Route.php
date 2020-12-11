@@ -10,13 +10,19 @@ class Route extends RouteAbstract
 
     public function getEndpoint () 
     {
-        return 'chapters';
+        return 'sightings';
     }
 
-	public function handleRequest( WP_REST_Request $request ) {
-        return [
-            'this' => 'is a test'
-        ];
+	public function handlePostRequest( WP_REST_Request $request ) {
+		return [
+			'status' => 'POST success'
+		];
+	}
+	
+	public function handleGetRequest( WP_REST_Request $request ) {
+		return [
+			'status' => 'GET success'
+		];
     }
 
 	public function registerRoute() {
@@ -26,23 +32,50 @@ class Route extends RouteAbstract
 			[
 				[
 					'methods'             => 'POST',
-					'callback'            => [ $this, 'handleRequest' ],
+					'callback'            => [ $this, 'handlePostRequest' ],
 					'permission_callback' => function() {
-						return current_user_can( 'manage_options' );
+						return true;
 					},
 					'args'                => [
-						'action' => [
+						'name' => [
+							'type'              => 'string',
+							'required'          => true,
+							'sanitize_callback' => 'sanitize_text_field',
+						],
+						'description' => [
 							'type'              => 'string',
 							'required'          => false,
-							//'validate_callback' => [ $this, 'validateCallback' ],
-							'sanitize_callback' => [ $this, 'sanitizeTextOrArray' ],
+							'sanitize_callback' => 'sanitize_text_field',
 						],
-						'payload' => [
-							'type'              => 'array',
-							'required'          => false,
-							//'validate_callback' => [ $this, 'validateCallback' ],
-							'sanitize_callback' => [ $this, 'sanitizeTextOrArray' ],
-						]
+						'evidence_id' => [
+							'type'              => 'string',
+							'required'          => true,
+							'sanitize_callback' => 'sanitize_text_field',
+						],
+					],
+				],
+				[
+					'methods'             => 'GET',
+					'callback'            => [ $this, 'handleGetRequest' ],
+					'permission_callback' => function() {
+						return true;
+					},
+					'args'                => [
+						'lat' => [
+							'type'              => 'string',
+							'required'          => true,
+							'sanitize_callback' => [ $this, 'sanitize_text_field',
+						],
+						'lng' => [
+							'type'              => 'string',
+							'required'          => true,
+							'sanitize_callback' => [ $this, 'sanitize_text_field',
+						],
+						'radius' => [
+							'type'              => 'string',
+							'required'          => true,
+							'sanitize_callback' => [ $this, 'sanitize_text_field',
+						],
 					],
 				],
 				'schema' => [ $this, 'getSchema' ],

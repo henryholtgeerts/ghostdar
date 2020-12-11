@@ -15,17 +15,14 @@ import { blockAttributes } from './utils';
  * Register Block
  */
 
-export default registerBlockType( 'ghostdar/sighting', {
-	title: __( 'Sighting', 'Ghostdar' ),
-	description: __( 'Used to control and display Sightings.', 'ghostdar' ),
+export default registerBlockType( 'ghostdar/submission-form', {
+	title: __( 'Submission Form', 'Ghostdar' ),
+	description: __( 'Used to submit Sightings.', 'ghostdar' ),
 	category: 'layout',
 	icon: 'book-alt',
 	keywords: [
-		__( 'sighting', 'ghostdar' ),
+		__( 'submission', 'ghostdar' ),
 	],
-	supports: {
-		align: ['wide']
-	},
 	attributes: blockAttributes,
 	edit: edit,
 	save: save,
